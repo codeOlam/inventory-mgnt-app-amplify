@@ -16,7 +16,9 @@ function Categories(){
         <div>
             <h1>All Category</h1>
             {
-                categories.map(cat => (cat.name))
+                categories.map(cat => (
+                    <li>{cat.name}</li>)
+                )
             }
         </div>
     )
