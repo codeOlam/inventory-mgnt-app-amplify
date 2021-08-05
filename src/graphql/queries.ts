@@ -7,12 +7,12 @@ export const getProduct = /* GraphQL */ `
     getProduct(id: $id) {
       id
       name
+      description
       price
       inStock
-      description
-      categoryID
       createdAt
       updatedAt
+      CategoryId
       _version
       _deleted
       _lastChangedAt
@@ -38,12 +38,12 @@ export const listProducts = /* GraphQL */ `
       items {
         id
         name
+        description
         price
         inStock
-        description
-        categoryID
         createdAt
         updatedAt
+        CategoryId
         _version
         _deleted
         _lastChangedAt
@@ -69,12 +69,12 @@ export const syncProducts = /* GraphQL */ `
       items {
         id
         name
+        description
         price
         inStock
-        description
-        categoryID
         createdAt
         updatedAt
+        CategoryId
         _version
         _deleted
         _lastChangedAt
@@ -97,12 +97,12 @@ export const getCategory = /* GraphQL */ `
       Product {
         id
         name
+        description
         price
         inStock
-        description
-        categoryID
         createdAt
         updatedAt
+        CategoryId
         _version
         _deleted
         _lastChangedAt

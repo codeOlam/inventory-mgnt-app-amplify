@@ -7,12 +7,12 @@ export const onCreateProduct = /* GraphQL */ `
     onCreateProduct {
       id
       name
+      description
       price
       inStock
-      description
-      categoryID
       createdAt
       updatedAt
+      CategoryId
       _version
       _deleted
       _lastChangedAt
@@ -33,12 +33,12 @@ export const onUpdateProduct = /* GraphQL */ `
     onUpdateProduct {
       id
       name
+      description
       price
       inStock
-      description
-      categoryID
       createdAt
       updatedAt
+      CategoryId
       _version
       _deleted
       _lastChangedAt
@@ -59,12 +59,12 @@ export const onDeleteProduct = /* GraphQL */ `
     onDeleteProduct {
       id
       name
+      description
       price
       inStock
-      description
-      categoryID
       createdAt
       updatedAt
+      CategoryId
       _version
       _deleted
       _lastChangedAt
@@ -93,12 +93,12 @@ export const onCreateCategory = /* GraphQL */ `
       Product {
         id
         name
+        description
         price
         inStock
-        description
-        categoryID
         createdAt
         updatedAt
+        CategoryId
         _version
         _deleted
         _lastChangedAt
@@ -119,12 +119,12 @@ export const onUpdateCategory = /* GraphQL */ `
       Product {
         id
         name
+        description
         price
         inStock
-        description
-        categoryID
         createdAt
         updatedAt
+        CategoryId
         _version
         _deleted
         _lastChangedAt
@@ -145,12 +145,12 @@ export const onDeleteCategory = /* GraphQL */ `
       Product {
         id
         name
+        description
         price
         inStock
-        description
-        categoryID
         createdAt
         updatedAt
+        CategoryId
         _version
         _deleted
         _lastChangedAt

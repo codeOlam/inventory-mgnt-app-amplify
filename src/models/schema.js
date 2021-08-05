@@ -17,6 +17,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "description": {
+                    "name": "description",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "price": {
                     "name": "price",
                     "isArray": false,
@@ -31,24 +38,10 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "description": {
-                    "name": "description",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "categoryID": {
-                    "name": "categoryID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
-                    "type": "AWSTimestamp",
+                    "type": "AWSDateTime",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -56,6 +49,13 @@ export const schema = {
                     "name": "updatedAt",
                     "isArray": false,
                     "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "CategoryId": {
+                    "name": "CategoryId",
+                    "isArray": false,
+                    "type": "ID",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -171,5 +171,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "58189fef38a9c6ca85ce53b3e3927896"
+    "version": "6880f07b4d49f54762939a9f6ed3e33f"
 };

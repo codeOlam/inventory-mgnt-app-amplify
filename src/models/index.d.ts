@@ -15,12 +15,12 @@ type CategoryMetaData = {
 export declare class Product {
   readonly id: string;
   readonly name: string;
+  readonly description?: string;
   readonly price: number;
   readonly inStock?: boolean;
-  readonly description?: string;
-  readonly categoryID?: string;
-  readonly createdAt?: number;
+  readonly createdAt?: string;
   readonly updatedAt?: string;
+  readonly CategoryId?: string;
   readonly Category?: Category;
   constructor(init: ModelInit<Product>);
   static copyOf(source: Product, mutator: (draft: MutableModel<Product>) => MutableModel<Product> | void): Product;

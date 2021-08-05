@@ -10,12 +10,12 @@ export const createProduct = /* GraphQL */ `
     createProduct(input: $input, condition: $condition) {
       id
       name
+      description
       price
       inStock
-      description
-      categoryID
       createdAt
       updatedAt
+      CategoryId
       _version
       _deleted
       _lastChangedAt
@@ -39,12 +39,12 @@ export const updateProduct = /* GraphQL */ `
     updateProduct(input: $input, condition: $condition) {
       id
       name
+      description
       price
       inStock
-      description
-      categoryID
       createdAt
       updatedAt
+      CategoryId
       _version
       _deleted
       _lastChangedAt
@@ -68,12 +68,12 @@ export const deleteProduct = /* GraphQL */ `
     deleteProduct(input: $input, condition: $condition) {
       id
       name
+      description
       price
       inStock
-      description
-      categoryID
       createdAt
       updatedAt
+      CategoryId
       _version
       _deleted
       _lastChangedAt
@@ -105,12 +105,12 @@ export const createCategory = /* GraphQL */ `
       Product {
         id
         name
+        description
         price
         inStock
-        description
-        categoryID
         createdAt
         updatedAt
+        CategoryId
         _version
         _deleted
         _lastChangedAt
@@ -134,12 +134,12 @@ export const updateCategory = /* GraphQL */ `
       Product {
         id
         name
+        description
         price
         inStock
-        description
-        categoryID
         createdAt
         updatedAt
+        CategoryId
         _version
         _deleted
         _lastChangedAt
@@ -163,12 +163,12 @@ export const deleteCategory = /* GraphQL */ `
       Product {
         id
         name
+        description
         price
         inStock
-        description
-        categoryID
         createdAt
         updatedAt
+        CategoryId
         _version
         _deleted
         _lastChangedAt

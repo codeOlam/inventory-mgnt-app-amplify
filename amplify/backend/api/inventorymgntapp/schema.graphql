@@ -1,12 +1,12 @@
 type Product @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
+  description: String
   price: Float!
   inStock: Boolean
-  description: String
-  categoryID: ID
-  createdAt: AWSTimestamp
+  createdAt: AWSDateTime
   updatedAt: AWSDateTime
+  CategoryId: ID
   Category: Category @connection
 }
 
