@@ -20,8 +20,7 @@ export declare class Product {
   readonly inStock?: boolean;
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  readonly CategoryId?: string;
-  readonly Category?: Category;
+  readonly category?: Category;
   constructor(init: ModelInit<Product>);
   static copyOf(source: Product, mutator: (draft: MutableModel<Product>) => MutableModel<Product> | void): Product;
 }
@@ -31,7 +30,7 @@ export declare class Category {
   readonly name: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  readonly Product?: Product;
+  readonly product?: (Product | null)[];
   constructor(init: ModelInit<Category>);
   static copyOf(source: Category, mutator: (draft: MutableModel<Category>) => MutableModel<Category> | void): Category;
 }

@@ -52,15 +52,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "CategoryId": {
-                    "name": "CategoryId",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "Category": {
-                    "name": "Category",
+                "category": {
+                    "name": "category",
                     "isArray": false,
                     "type": {
                         "model": "Category"
@@ -69,7 +62,7 @@ export const schema = {
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
-                        "targetName": "productCategoryId"
+                        "targetName": "CategoryId"
                     }
                 }
             },
@@ -79,6 +72,15 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byCategory",
+                        "fields": [
+                            "CategoryId"
+                        ]
+                    }
                 },
                 {
                     "type": "auth",
@@ -129,17 +131,18 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "Product": {
-                    "name": "Product",
-                    "isArray": false,
+                "product": {
+                    "name": "product",
+                    "isArray": true,
                     "type": {
                         "model": "Product"
                     },
                     "isRequired": false,
                     "attributes": [],
+                    "isArrayNullable": true,
                     "association": {
-                        "connectionType": "BELONGS_TO",
-                        "targetName": "categoryProductId"
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "category"
                     }
                 }
             },
@@ -171,5 +174,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "6880f07b4d49f54762939a9f6ed3e33f"
+    "version": "05a3608d2ec0c8ca9530a22d71dbf1a2"
 };

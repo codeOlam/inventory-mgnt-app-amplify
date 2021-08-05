@@ -12,7 +12,6 @@ export type CreateProductInput = {
   updatedAt?: string | null,
   CategoryId?: string | null,
   _version?: number | null,
-  productCategoryId?: string | null,
 };
 
 export type ModelProductConditionInput = {
@@ -116,7 +115,7 @@ export type Product = {
   _version: number,
   _deleted?: boolean | null,
   _lastChangedAt: number,
-  Category?: Category | null,
+  category?: Category | null,
 };
 
 export type Category = {
@@ -128,7 +127,14 @@ export type Category = {
   _version: number,
   _deleted?: boolean | null,
   _lastChangedAt: number,
-  Product?: Product | null,
+  product?: ModelProductConnection | null,
+};
+
+export type ModelProductConnection = {
+  __typename: "ModelProductConnection",
+  items?:  Array<Product | null > | null,
+  nextToken?: string | null,
+  startedAt?: number | null,
 };
 
 export type UpdateProductInput = {
@@ -141,7 +147,6 @@ export type UpdateProductInput = {
   updatedAt?: string | null,
   CategoryId?: string | null,
   _version?: number | null,
-  productCategoryId?: string | null,
 };
 
 export type DeleteProductInput = {
@@ -155,7 +160,6 @@ export type CreateCategoryInput = {
   createdAt?: string | null,
   updatedAt?: string | null,
   _version?: number | null,
-  categoryProductId?: string | null,
 };
 
 export type ModelCategoryConditionInput = {
@@ -173,7 +177,6 @@ export type UpdateCategoryInput = {
   createdAt?: string | null,
   updatedAt?: string | null,
   _version?: number | null,
-  categoryProductId?: string | null,
 };
 
 export type DeleteCategoryInput = {
@@ -193,13 +196,6 @@ export type ModelProductFilterInput = {
   and?: Array< ModelProductFilterInput | null > | null,
   or?: Array< ModelProductFilterInput | null > | null,
   not?: ModelProductFilterInput | null,
-};
-
-export type ModelProductConnection = {
-  __typename: "ModelProductConnection",
-  items?:  Array<Product | null > | null,
-  nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ModelCategoryFilterInput = {
@@ -238,7 +234,7 @@ export type CreateProductMutation = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Category?:  {
+    category?:  {
       __typename: "Category",
       id: string,
       name: string,
@@ -270,7 +266,7 @@ export type UpdateProductMutation = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Category?:  {
+    category?:  {
       __typename: "Category",
       id: string,
       name: string,
@@ -302,7 +298,7 @@ export type DeleteProductMutation = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Category?:  {
+    category?:  {
       __typename: "Category",
       id: string,
       name: string,
@@ -330,19 +326,10 @@ export type CreateCategoryMutation = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Product?:  {
-      __typename: "Product",
-      id: string,
-      name: string,
-      description?: string | null,
-      price: number,
-      inStock?: boolean | null,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      CategoryId?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
+    product?:  {
+      __typename: "ModelProductConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -362,19 +349,10 @@ export type UpdateCategoryMutation = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Product?:  {
-      __typename: "Product",
-      id: string,
-      name: string,
-      description?: string | null,
-      price: number,
-      inStock?: boolean | null,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      CategoryId?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
+    product?:  {
+      __typename: "ModelProductConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -394,19 +372,10 @@ export type DeleteCategoryMutation = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Product?:  {
-      __typename: "Product",
-      id: string,
-      name: string,
-      description?: string | null,
-      price: number,
-      inStock?: boolean | null,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      CategoryId?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
+    product?:  {
+      __typename: "ModelProductConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -429,7 +398,7 @@ export type GetProductQuery = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Category?:  {
+    category?:  {
       __typename: "Category",
       id: string,
       name: string,
@@ -513,19 +482,10 @@ export type GetCategoryQuery = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Product?:  {
-      __typename: "Product",
-      id: string,
-      name: string,
-      description?: string | null,
-      price: number,
-      inStock?: boolean | null,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      CategoryId?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
+    product?:  {
+      __typename: "ModelProductConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -593,7 +553,7 @@ export type OnCreateProductSubscription = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Category?:  {
+    category?:  {
       __typename: "Category",
       id: string,
       name: string,
@@ -620,7 +580,7 @@ export type OnUpdateProductSubscription = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Category?:  {
+    category?:  {
       __typename: "Category",
       id: string,
       name: string,
@@ -647,7 +607,7 @@ export type OnDeleteProductSubscription = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Category?:  {
+    category?:  {
       __typename: "Category",
       id: string,
       name: string,
@@ -670,19 +630,10 @@ export type OnCreateCategorySubscription = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Product?:  {
-      __typename: "Product",
-      id: string,
-      name: string,
-      description?: string | null,
-      price: number,
-      inStock?: boolean | null,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      CategoryId?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
+    product?:  {
+      __typename: "ModelProductConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -697,19 +648,10 @@ export type OnUpdateCategorySubscription = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Product?:  {
-      __typename: "Product",
-      id: string,
-      name: string,
-      description?: string | null,
-      price: number,
-      inStock?: boolean | null,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      CategoryId?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
+    product?:  {
+      __typename: "ModelProductConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
   } | null,
 };
@@ -724,19 +666,10 @@ export type OnDeleteCategorySubscription = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    Product?:  {
-      __typename: "Product",
-      id: string,
-      name: string,
-      description?: string | null,
-      price: number,
-      inStock?: boolean | null,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      CategoryId?: string | null,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
+    product?:  {
+      __typename: "ModelProductConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
   } | null,
 };

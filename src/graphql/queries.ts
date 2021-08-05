@@ -16,7 +16,7 @@ export const getProduct = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      Category {
+      category {
         id
         name
         createdAt
@@ -94,18 +94,9 @@ export const getCategory = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      Product {
-        id
-        name
-        description
-        price
-        inStock
-        createdAt
-        updatedAt
-        CategoryId
-        _version
-        _deleted
-        _lastChangedAt
+      product {
+        nextToken
+        startedAt
       }
     }
   }
