@@ -3,15 +3,14 @@ import {DataStore} from 'aws-amplify';
 import { Product, Category } from "../models";
 import {Button, Input} from 'antd';
 import TextArea from "antd/lib/input/TextArea";
-import { ConsoleLogger } from "@aws-amplify/core";
 
 
 const initialState ={
     name: '',
     description: '',
-    categoryID: '',
+    categoryId: '',
     price: 0.0,
-    inStock: undefined
+    inStock: true
 }
 
 interface targetInput {
@@ -35,9 +34,9 @@ function Products(){
         await DataStore.save(new Product({
             name: formState.name,
             description: formState.description,
-            categoryId: formState.categoryID,
+            categoryId: formState.categoryId,
             price: +formState.price,
-            inStock: formState.inStock === 'true' ? true:false,
+            inStock: formState.inStock as unknown as string === 'true' ? true:false,
         }))
         setFormState(initialState)
     }
@@ -46,16 +45,6 @@ function Products(){
         setFormState({...formState, 
                     [e.target.name]: e.target.value,
                 })
-        console.log({...formState})
-        console.log({name: formState.name})
-        console.log(formState.name)
-        console.log(formState.description)
-        console.log(formState.categoryID)
-        console.log(formState.price)
-        console.log({price: +formState.price})
-        console.log(formState.inStock)
-        console.log({inStock: formState.inStock === 'true' ? true:false})
-        
     }
     //Add new category end logic
 
@@ -67,6 +56,68 @@ function Products(){
         setProducts(products)
     }
     //End query
+
+    //Edit category logic begins
+    interface editInput{
+        id: string;
+        name: string;
+        value: any;
+    }
+
+    //Creating some helper functions
+    //toggle function
+    const onToggle = async (id: string) => {
+        const product = await DataStore.query(Product, id)
+        setToggleForm(!toggleForm)
+        setEditFormState(product!)
+    }
+
+    function onEdit(e: { target: editInput }){
+        setEditFormState({...editFormState, [e.target.name]: e.target.value})
+    }
+
+    async function editProduct(
+        id: string, 
+        name: string,
+        description: string,
+        categoryId: string,
+        price: number,
+        inStock: boolean){
+        const product = await DataStore.query(Product, id)
+        console.log('product data to be edited: ', product)
+        setEditFormState(initialState)
+
+        try{
+            await DataStore.save(
+                Product.copyOf(product!, edited=>{
+                    edited.name = name
+                    edited.description = description
+                    edited.categoryId = categoryId
+                    edited.price = +price
+                    edited.inStock = inStock
+                })
+            )
+            console.log(`${product?.name}, successfully updated to ${name}`)
+
+        }catch(error){
+            console.log('Could not Edit: ', error)
+        }
+    }
+    //End Edit  
+
+    //Delete logic
+    async function deleteProduct(id: string){
+        try{
+            const product = await DataStore.query(Product, id)
+            console.log(`product to be deleted is: ${product?.name}`)
+            DataStore.delete(product!)
+            console.log(`${product?.name} has been removed successfully`)
+        }catch(error){
+            console.log(`error deleting ${Product.name}`)
+        }
+        
+    }
+    //end delete logic
 
     useEffect(() =>{
         fetchProducts()
@@ -137,6 +188,63 @@ function Products(){
                             inStock: <li>{item.inStock? "Yes" : "No"}</li>
                             Category: <li>{item.category?.name}</li>
                         </ul>
+                        <Button type='primary' 
+                        onClick={() => onToggle(item.id)}
+                    >Edit</Button>
+                    
+                    {
+                        toggleForm && (
+                            <div>
+                            <Input 
+                                onChange={onEdit}
+                                name='name'
+                                value={editFormState.name}
+                            />
+                            <TextArea 
+                                onChange={onEdit}
+                                name='description'
+                                placeholder="Product Description"
+                                value={formState.description}
+                            />
+                            <Input 
+                                onChange={onChange}
+                                type="number"
+                                name='price'
+                                placeholder="$0.0"
+                                value={formState.price as number}
+                            />
+                            <select
+                                onChange={onChange}
+                                name='categoryID'
+                                placeholder="Category"
+                            >
+                                {
+                                    categories.map(cate => (
+                                        <option key={cate.id} value={cate.id}>{cate.name}</option>
+                                    ))
+                                }
+                            </select>
+                            <select
+                                onChange={onChange}
+                                name='inStock'
+                                aria-label='in Stock?'
+                            >
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            <Button type='primary' onClick={() => 
+                                editProduct(item.id, 
+                                            editFormState.name,
+                                            editFormState.description,
+                                            editFormState.categoryId,
+                                            editFormState.price,
+                                            editFormState.inStock)}>Save</Button>
+                            </div>
+                        )
+                    }
+                    <Button type='primary' 
+                        onClick={() => deleteProduct(item.id)}>
+                            Remove</Button>                      
                     </div>
                 ))
             }
