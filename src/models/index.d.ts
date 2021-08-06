@@ -16,6 +16,7 @@ export declare class Product {
   readonly id: string;
   readonly name: string;
   readonly description?: string;
+  readonly categoryId: string;
   readonly price: number;
   readonly inStock?: boolean;
   readonly createdAt?: string;
