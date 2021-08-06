@@ -4,7 +4,6 @@ import Categories from './components/allCategory';
 import Products from './components/Products';
 import Amplify from 'aws-amplify'
 import config from './aws-exports'
-import { Product } from './models';
 Amplify.configure(config)
 
 function App() {

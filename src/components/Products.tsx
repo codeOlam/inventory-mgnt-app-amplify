@@ -92,9 +92,9 @@ function Products(){
                 Product.copyOf(product!, edited=>{
                     edited.name = name
                     edited.description = description
-                    edited.categoryId = categoryId
-                    edited.price = +price
-                    edited.inStock = inStock
+                    edited.categoryId = categoryId!
+                    edited.price = +price!
+                    edited.inStock = inStock as unknown as string === "true" ? true:false
                 })
             )
             console.log(`${product?.name}, successfully updated to ${name}`)
@@ -204,17 +204,17 @@ function Products(){
                                 onChange={onEdit}
                                 name='description'
                                 placeholder="Product Description"
-                                value={formState.description}
+                                value={editFormState.description}
                             />
                             <Input 
-                                onChange={onChange}
+                                onChange={onEdit}
                                 type="number"
                                 name='price'
                                 placeholder="$0.0"
-                                value={formState.price as number}
+                                value={editFormState.price as number}
                             />
                             <select
-                                onChange={onChange}
+                                onChange={onEdit}
                                 name='categoryID'
                                 placeholder="Category"
                             >
@@ -225,7 +225,7 @@ function Products(){
                                 }
                             </select>
                             <select
-                                onChange={onChange}
+                                onChange={onEdit}
                                 name='inStock'
                                 aria-label='in Stock?'
                             >
