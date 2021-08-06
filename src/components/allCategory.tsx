@@ -45,6 +45,14 @@ function Categories(){
         value: string;
     }
 
+    //Creating some helper functions
+    //toggle function
+    const onToggle = async (id: string) => {
+        const category = await DataStore.query(Category, id)
+        setToggleForm(!toggleForm)
+        setEditFormState(category!)
+    }
+
     function onEdit(e: { target: editInput }){
         setEditFormState({...editFormState, [e.target.name]: e.target.value})
     }
@@ -52,7 +60,7 @@ function Categories(){
     async function editCategory(id: string, name: string){
         const category = await DataStore.query(Category, id)
         console.log('category data to be edited: ',category)
-        setEditFormState(category!)
+        setEditFormState(initialState)
 
         try{
             await DataStore.save(
@@ -68,12 +76,14 @@ function Categories(){
     }
     //End Edit
 
+
     //Delete logic
     async function deleteCategory(id: string){
         try{
             const category = await DataStore.query(Category, id)
             console.log(`category to be deleted is: ${category?.name}`)
-            // DataStore.delete(category)
+            DataStore.delete(category!)
+            console.log(`${category?.name} has been removed successfully`)
         }catch(error){
             console.log(`error deleting ${Category.name}`)
         }
@@ -107,7 +117,7 @@ function Categories(){
                     <div key={cat.id}> 
                     <li>{cat.name}</li> 
                     <Button type='primary' 
-                        onClick={() => setToggleForm(!toggleForm)}
+                        onClick={() => onToggle(cat.id)}
                     >Edit</Button>
                     
                     {
@@ -123,7 +133,8 @@ function Categories(){
                         )
                     }
                     <Button type='primary' 
-                        onClick={() => deleteCategory(cat.id)}>Remove</Button>
+                        onClick={() => deleteCategory(cat.id)}>
+                            Remove</Button>
                     </div>
                     )
                 )
