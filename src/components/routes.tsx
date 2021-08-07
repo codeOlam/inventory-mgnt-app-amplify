@@ -20,7 +20,7 @@ function Router () {
                 <Layout className="site-layout">
                     <Switch>
                         <Route exact path="/" component={Dash} />
-                        <Route exact path="/allproducts" component={Products} />
+                        {/* <Route exact path="/allproducts" component={Products} /> */}
                     </Switch>
                 </Layout>
                 </Layout>    
