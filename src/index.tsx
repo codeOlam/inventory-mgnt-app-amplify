@@ -5,6 +5,10 @@ import reportWebVitals from './reportWebVitals';
 
 import Router from './components/routes';
 
+import Amplify from 'aws-amplify'
+import config from './aws-exports'
+Amplify.configure(config)
+
 ReactDOM.render(
   <React.StrictMode>
     <Router />

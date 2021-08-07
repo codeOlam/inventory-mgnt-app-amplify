@@ -2,9 +2,7 @@ import React from 'react';
 import './App.css';
 import Categories from './components/allCategory';
 import Products from './components/Products';
-import Amplify from 'aws-amplify'
-import config from './aws-exports'
-Amplify.configure(config)
+
 
 function App() {
   return (
