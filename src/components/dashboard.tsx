@@ -30,4 +30,5 @@ function Dash() {
   );
 }
 
-export default withAuthenticator(Dash);
+export default Dash;
+// export default withAuthenticator(Dash);
