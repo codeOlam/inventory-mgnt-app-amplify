@@ -15,9 +15,10 @@ type CategoryMetaData = {
 export declare class Product {
   readonly id: string;
   readonly name: string;
-  readonly description?: string;
+  readonly description: string;
   readonly price: number;
-  readonly inStock?: boolean;
+  readonly inStock: boolean;
+  readonly categoryId: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   readonly category?: Category;
