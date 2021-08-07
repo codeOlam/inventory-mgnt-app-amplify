@@ -5,6 +5,7 @@ import 'antd/dist/antd.css';
 
 import HeaderMenu from './headerMenu';
 import SiderNav from './sider';
+import Dash from './dashboard';
 
 
 
