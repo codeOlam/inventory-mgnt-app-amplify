@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "testAuthIdentityPool",
+    "identityPoolName": "inventorymgntapp46196da6_identitypool_46196da6",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "invent432ca6e2",
-    "userPoolName": "inventorymgntapp",
+    "resourceNameTruncated": "invent46196da6",
+    "userPoolName": "inventorymgntapp46196da6_userpool_46196da6",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -12,24 +12,26 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Forgot password code: {####}",
-    "emailVerificationMessage": "Forgot password code: {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "preferred_username",
         "email"
     ],
-    "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
-    "userpoolClientWriteAttributes": [],
-    "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "invent432ca6e2_userpoolclient_lambda_role",
+    "userpoolClientWriteAttributes": [
+        "email"
+    ],
+    "userpoolClientReadAttributes": [
+        "email"
+    ],
+    "userpoolClientLambdaRole": "invent46196da6_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "432ca6e2",
-    "resourceName": "inventorymgntapp",
+    "sharedId": "46196da6",
+    "resourceName": "inventorymgntapp46196da6",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -43,13 +45,9 @@
             "Arn"
         ]
     },
-    "serviceName": "Cognito",
-    "useDefault": "manual",
-    "userPoolGroups": false,
+    "useDefault": "default",
     "userPoolGroupList": [],
-    "adminQueries": false,
-    "thirdPartyAuth": false,
-    "authProviders": [],
+    "serviceName": "Cognito",
     "usernameCaseSensitive": false,
     "dependsOn": []
 }
