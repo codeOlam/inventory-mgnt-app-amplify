@@ -8,6 +8,7 @@ import { withAuthenticator } from '@aws-amplify/ui-react';
 import HeaderMenu from './headerMenu';
 import SiderNav from './sider';
 import Dash from './dashboard';
+import ListCate from '../category/list';
 
 
 
@@ -30,6 +31,7 @@ function Router () {
                     <Switch>
                         <Route exact path="/" component={Dash} />
                         {/* <Route exact path="/allproducts" component={Products} /> */}
+                        <Route exact path="/allcategories" component={ListCate} />
                     </Switch>
                 </Layout>
                 </Layout>    

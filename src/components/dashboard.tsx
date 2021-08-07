@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import './index.css';
 import { Layout, Breadcrumb, Card } from 'antd';
 
+import ListCate from '../category/list';
 
 
 const { Content } = Layout;
@@ -33,7 +34,7 @@ function Dash() {
           </Card>
           <Card title="Categories">
             <Card.Grid style={{width: '100%', textAlign: 'center'}}>
-              Categories
+              <ListCate />
             </Card.Grid>
           </Card>
           </Content>
