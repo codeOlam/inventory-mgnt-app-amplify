@@ -1,14 +1,14 @@
 import React from 'react';
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import Products from './Products';
 import 'antd/dist/antd.css';
 import './index.css';
-import { Layout, Breadcrumb } from 'antd';
+import { Layout, Breadcrumb, Card } from 'antd';
+
 
 
 const { Content } = Layout;
 
 function Dash() {
+
 
   return (
         <>
@@ -23,7 +23,19 @@ function Dash() {
               padding: 24,
             }}
           >
-            <Products />
+          <Card title="Inventory Statistics">
+            <Card.Grid style={{width: '50%', textAlign: 'center'}}>
+              Products
+            </Card.Grid>
+            <Card.Grid style={{width: '50%', textAlign: 'center'}}>
+              Categories
+            </Card.Grid>
+          </Card>
+          <Card title="Categories">
+            <Card.Grid style={{width: '100%', textAlign: 'center'}}>
+              Categories
+            </Card.Grid>
+          </Card>
           </Content>
         </>
 
