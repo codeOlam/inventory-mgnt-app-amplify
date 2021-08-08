@@ -29,13 +29,13 @@ function SiderNav (){
             </Menu.Item>
             <SubMenu key="sub1" icon={<ShoppingOutlined />} title="Products">
               <Menu.Item key="3">
-                <Link to={`/allproducts`}>All Products </Link>
+              <Link to={`/allproducts`}>All Products </Link>
               </Menu.Item>
               <Menu.Item key="4">Sold Products</Menu.Item>
               <Menu.Item key="5">Available Products</Menu.Item>
             </SubMenu>
             <Menu.Item key="6" icon={<FolderOutlined />}>
-              All Categories
+            <Link to={`/allcategories`}>All Categories </Link>
             </Menu.Item>
 
           </Menu>

@@ -6,6 +6,7 @@ import { DeleteTwoTone} from "@ant-design/icons";
 
 import UpdateCate from '../../category/update'
 import AddCate from "../../category/create";
+import { Link } from "react-router-dom";
 
 const { Content } = Layout;
 
@@ -59,8 +60,10 @@ function AllCategory(){
     return (
         <>
             <Breadcrumb style={{ margin: '20px 16px' }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                <Breadcrumb.Item>
+                    <Link to={`/`}> Dashboard </Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
             </Breadcrumb>
             <Content
                 className="site-layout-background"
