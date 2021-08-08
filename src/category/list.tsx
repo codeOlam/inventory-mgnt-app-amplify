@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {DataStore} from 'aws-amplify';
 import { Category } from "../models";
-import { Table, Spin, Popconfirm, Popover} from "antd";
-import { DeleteTwoTone, EditTwoTone } from "@ant-design/icons";
+import { Table, Spin} from "antd";
+import { DeleteTwoTone} from "@ant-design/icons";
+
+import UpdateCate from './update'
 
 function ListCate(){
     const [categories, setCategories] = useState<Category[]>([])
@@ -51,7 +53,8 @@ function ListCate(){
         name: row.name,
         createdAt: row.createdAt,
         updatedAt: row.updatedAt,
-        operation: <><a onClick={() => deleteCategory(row.id)}><DeleteTwoTone/></a> <a onClick={() => deleteCategory(row.id)}><EditTwoTone /></a></>
+        operation: <><a onClick={() => deleteCategory(row.id)}><DeleteTwoTone/></a><UpdateCate id={row.id} />
+        </>
     }))
 
     return (
