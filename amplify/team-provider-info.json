@@ -1,20 +1,26 @@
 {
-  "staging": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-inventorymgntapp-staging-163855-authRole",
-      "UnauthRoleArn": "arn:aws:iam::106712103741:role/amplify-inventorymgntapp-staging-163855-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::106712103741:role/amplify-inventorymgntapp-staging-163855-authRole",
-      "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-inventorymgntapp-staging-163855-deployment",
-      "UnauthRoleName": "amplify-inventorymgntapp-staging-163855-unauthRole",
-      "StackName": "amplify-inventorymgntapp-staging-163855",
-      "StackId": "arn:aws:cloudformation:us-east-2:106712103741:stack/amplify-inventorymgntapp-staging-163855/75ea5430-f542-11eb-b539-02bc742e1cea",
-      "AmplifyAppId": "dyyqtrkqa7r7i"
-    },
-    "categories": {
-      "auth": {
-        "inventorymgntapp46196da6": {}
-      }
+    "staging": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-inventorymgntapp-staging-163855-authRole",
+            "UnauthRoleArn": "arn:aws:iam::106712103741:role/amplify-inventorymgntapp-staging-163855-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::106712103741:role/amplify-inventorymgntapp-staging-163855-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-inventorymgntapp-staging-163855-deployment",
+            "UnauthRoleName": "amplify-inventorymgntapp-staging-163855-unauthRole",
+            "StackName": "amplify-inventorymgntapp-staging-163855",
+            "StackId": "arn:aws:cloudformation:us-east-2:106712103741:stack/amplify-inventorymgntapp-staging-163855/75ea5430-f542-11eb-b539-02bc742e1cea",
+            "AmplifyAppId": "dyyqtrkqa7r7i"
+        },
+        "categories": {
+            "auth": {
+                "inventorymgntapp46196da6": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dyyqtrkqa7r7i",
+                    "type": "cicd"
+                }
+            }
+        }
     }
-  }
 }

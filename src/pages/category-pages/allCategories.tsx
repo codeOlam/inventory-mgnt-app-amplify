@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from "react";
 import {DataStore} from 'aws-amplify';
-import { Category } from "../models";
-import { Table, Spin} from "antd";
+import { Category } from "../../models";
+import { Table, Spin, Layout, Breadcrumb} from "antd";
 import { DeleteTwoTone} from "@ant-design/icons";
 
-import UpdateCate from './update'
+import UpdateCate from '../../category/update'
+import AddCate from "../../category/create";
 
-function ListCate(){
+const { Content } = Layout;
+
+function AllCategory(){
     const [categories, setCategories] = useState<Category[]>([])
     const [loading, setLoading] = useState(true)
 
@@ -54,14 +57,27 @@ function ListCate(){
     }))
 
     return (
-        <div>
-            {loading && <Spin tip='loading...' size='large'/>}    
-            <Table 
-                columns={columns}
-                dataSource={data}
-            />
-        </div>  
+        <>
+            <Breadcrumb style={{ margin: '20px 16px' }}>
+                <Breadcrumb.Item>Home</Breadcrumb.Item>
+                <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+            </Breadcrumb>
+            <Content
+                className="site-layout-background"
+                style={{
+                margin: '24px 16px',
+                padding: 24,
+                }}
+            >
+                <AddCate/>
+                {loading && <Spin tip='loading...' size='large'/>}    
+                <Table 
+                    columns={columns}
+                    dataSource={data}
+                />
+            </Content>
+        </>  
     )  
 }
 
-export default ListCate
+export default AllCategory
