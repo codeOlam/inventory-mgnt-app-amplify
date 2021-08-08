@@ -1,7 +1,7 @@
 import { Table, Spin, Layout, Breadcrumb} from "antd";
-import AddCate from "../../category/create";
 import { Link } from "react-router-dom";
 
+import AddProd from "../../products/create";
 import ListProd from "../../products/list"; 
 
 const { Content } = Layout;
@@ -23,7 +23,7 @@ function AllProduct(){
                 padding: 24,
                 }}
             >
-                <AddCate/>
+                <AddProd/>
                 <ListProd/>
             </Content>
         </>  

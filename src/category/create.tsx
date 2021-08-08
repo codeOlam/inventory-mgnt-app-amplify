@@ -72,7 +72,7 @@ function AddCate(){
                 rules={[
                   {
                     required: true,
-                    message: 'Please input the product name!',
+                    message: 'Please input the category name!',
                   },
                 ]}
               >
