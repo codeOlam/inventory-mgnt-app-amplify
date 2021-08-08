@@ -1,7 +1,7 @@
 type Product
   @model
   @auth(rules: [{ allow: public }])
-  @key(name: "byCategory", fields: ["CategoryId"]) {
+  @key(name: "byCategory", fields: ["categoryID"]) {
   id: ID!
   name: String!
   description: String
@@ -9,8 +9,8 @@ type Product
   inStock: Boolean
   createdAt: AWSDateTime
   updatedAt: AWSDateTime
-  CategoryId: ID
-  category: Category @connection(fields: ["CategoryId"])
+  categoryID: ID!
+  category: Category @connection(fields: ["categoryID"])
 }
 
 type Category @model @auth(rules: [{ allow: public }]) {

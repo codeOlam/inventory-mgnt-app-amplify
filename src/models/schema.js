@@ -62,7 +62,7 @@ export const schema = {
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
-                        "targetName": "CategoryId"
+                        "targetName": "categoryID"
                     }
                 }
             },
@@ -78,7 +78,7 @@ export const schema = {
                     "properties": {
                         "name": "byCategory",
                         "fields": [
-                            "CategoryId"
+                            "categoryID"
                         ]
                     }
                 },
@@ -174,5 +174,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "05a3608d2ec0c8ca9530a22d71dbf1a2"
+    "version": "e8e98c5c0a1e80c4e8eed91dc4b2862c"
 };
