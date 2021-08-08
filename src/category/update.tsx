@@ -49,7 +49,7 @@ function UpdateCate({id}:{id: string}){
                 values.name as string);
               setVisible(false);
           } catch(error){
-              console.log('Error Adding new product: ', error);
+              console.log('Error Editing Category: ', error);
           }
       };
 

@@ -5,6 +5,7 @@ import { Table, Spin} from "antd";
 import { DeleteTwoTone} from "@ant-design/icons";
 
 import UpdateCate from './update'
+import AddCate from "./create";
 
 function ListCate(){
     const [categories, setCategories] = useState<Category[]>([])
@@ -23,10 +24,6 @@ function ListCate(){
             () => fetchCategories())
             return () => subscription.unsubscribe()
     }, [])
-
-    function selectItem(item: string){
-        console.log('Item is: ', item)
-    }
 
     async function deleteCategory(id: string){
         console.log('item id:', id)
@@ -59,6 +56,7 @@ function ListCate(){
 
     return (
         <div>
+            <AddCate/>
             {loading && <Spin tip='loading...' size='large'/>}    
             <Table 
                 columns={columns}
