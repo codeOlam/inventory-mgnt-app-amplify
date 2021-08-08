@@ -9,6 +9,7 @@ import HeaderMenu from './headerMenu';
 import SiderNav from './sider';
 import Dash from './dashboard';
 import AllCategory from '../pages/category-pages/allCategories';
+import AllProduct from '../pages/product-pages/allProducts';
 
 
 
@@ -30,7 +31,7 @@ function Router () {
                 <Layout className="site-layout">
                     <Switch>
                         <Route exact path="/" component={Dash} />
-                        {/* <Route exact path="/allproducts" component={Products} /> */}
+                        <Route exact path="/allproducts" component={AllProduct} />
                         <Route exact path="/allcategories" component={AllCategory} />
                     </Switch>
                 </Layout>
