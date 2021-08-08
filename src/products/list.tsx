@@ -4,7 +4,7 @@ import { Product } from "../models";
 import { Table, Spin, Tag} from "antd";
 import { DeleteTwoTone} from "@ant-design/icons";
 
-// import UpdateCate from './update'
+import UpdateProd from "./update";
 
 function ListProd(){
     const [products, setProducts] = useState<Product[]>([])
@@ -67,7 +67,7 @@ function ListProd(){
         inStock: row.inStock,
         category: row.category?.name,
         operation: <><a onClick={() => deleteProduct(row.id)}><DeleteTwoTone/></a>
-        {/* <UpdateCate id={row.id} /> */}
+        <UpdateProd id={row.id} />
         </>
     }))
 
