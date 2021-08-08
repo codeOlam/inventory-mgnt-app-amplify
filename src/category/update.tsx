@@ -88,15 +88,15 @@ function UpdateCate({id}:{id: string}){
               form={form}
               layout="vertical"
               name="form_in_modal"
-              onChange={onSetVisible}
               initialValues={{
-                modifier: 'onSetVisible',
+                modifier: 'public',
               }}
             >
               <Form.Item
                 id = "name"
                 name="name"
                 label="Category Name"
+                initialValue={editFormState.name}
                 rules={[
                   {
                     required: true,
@@ -104,7 +104,7 @@ function UpdateCate({id}:{id: string}){
                   },
                 ]}
               >
-                <Input/>
+                <Input />
               </Form.Item>
             </Form>
           </Modal>
