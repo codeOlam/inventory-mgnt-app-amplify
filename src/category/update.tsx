@@ -7,11 +7,6 @@ import { EditTwoTone } from "@ant-design/icons";
 const initialState ={
     name: ''
 }
-interface editInput{
-    id: string;
-    name: string;
-    value: string;
-}
 
 function UpdateCate({id}:{id: string}){
     const [editFormState, setEditFormState] = useState(initialState)
@@ -41,10 +36,6 @@ function UpdateCate({id}:{id: string}){
         }catch(error){
             console.log('Could not Edit: ', error)
         }
-    }
-
-    function onChange(e: { target: editInput }){
-        setEditFormState({...editFormState, [e.target.name]: e.target.value})
     }
 
     const onEdit = (values: any) => {
