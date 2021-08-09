@@ -1,4 +1,4 @@
-import { Table, Spin, Layout, Breadcrumb} from "antd";
+import { Layout, Breadcrumb} from "antd";
 
 import AddCate from "../../category/create";
 import { Link } from "react-router-dom";
