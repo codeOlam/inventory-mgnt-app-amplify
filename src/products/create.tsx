@@ -13,10 +13,10 @@ function AddProd(){
         name: string,
         price: number,
         categoryID: string,
+        inStock: boolean,
         description?: string,
-        inStock?: boolean,
         ){
-        const input = {name, price, categoryID, description, inStock }
+        const input = {name, price, categoryID, inStock, description}
         try{
             await DataStore.save(new Product(input))
             console.log(`Added ${name} to Product Successfully`)
@@ -32,8 +32,9 @@ function AddProd(){
         console.log('Values.name', values.name);
         console.log('Values.price', values.price);
         console.log('Values.category', values.categoryID);
-        console.log('Values.description', values.description);
+        console.log('Values.description', values.description); 
         console.log('Values.inStock', values.inStock);
+       
         
   
           try{
@@ -41,8 +42,9 @@ function AddProd(){
                 values.name as string,
                 +values.price,
                 values.categoryID as string,
-                values.description as string,
                 values.inStock as boolean,
+                values.description as string
+                
                 
                 );
               setVisible(false);

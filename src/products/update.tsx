@@ -21,7 +21,7 @@ interface EditProduct {
 
 function UpdateProd({id}:{id: string}){
     const [categories, setCategories] = useState<Category[]>([]);
-    const [editFormState, setEditFormState] = useState(initialState)
+    const [editFormState, setEditFormState] = useState<Product>()
     const [visible, setVisible] = useState(false);
 
 
@@ -31,25 +31,29 @@ function UpdateProd({id}:{id: string}){
         setVisible(!visible)
         setEditFormState(product!)        
     }
+ 
 
     async function editProduct(
         id: string, 
         name: string,
         price: number,
-        categoryID: string,
-        description: string,
-        inStock: boolean){
+        inStock: boolean,
+        description: string
+        ){
         const product = await DataStore.query(Product, id)
         console.log('product data to be edited: ',product)
-        setEditFormState(initialState)
+        console.log('CatID: ',product?.category)
+        console.log('InStock: ',product?.inStock)
+        setEditFormState(editFormState)
 
         try{
             await DataStore.save(
                 Product.copyOf(product!, edited=>{
                     edited.name = name
                     edited.price = +price
-                    edited.description = description
                     edited.inStock = inStock
+                    edited.description = description
+                    
                 })
             )
             console.log(`${product?.name}, successfully updated`)
@@ -67,9 +71,9 @@ function UpdateProd({id}:{id: string}){
                 id as string,
                 values.name as string,
                 values.price as number,
-                values.categoryID as string,
-                values.description as string,
-                values.instock as boolean);
+                values.inStock as boolean,
+                values.description as string
+                );
               setVisible(false);
           } catch(error){
               console.log('Error Editing Product: ', error);
@@ -119,7 +123,7 @@ function UpdateProd({id}:{id: string}){
                 id = "name"
                 name="name"
                 label="Product Name"
-                initialValue={editFormState.name}
+                initialValue={editFormState?.name}
                 rules={[
                   {
                     required: true,
@@ -133,7 +137,7 @@ function UpdateProd({id}:{id: string}){
                 id = "price"
                 name="price"
                 label=" Product Price"
-                initialValue={editFormState.price}
+                initialValue={editFormState?.price}
                 rules={[
                   {
                     required: true,
@@ -147,6 +151,7 @@ function UpdateProd({id}:{id: string}){
                 id = "description"
                 name="description"
                 label="Product description"
+                initialValue={editFormState?.description}
               >
                 <TextArea />
               </Form.Item>
@@ -154,7 +159,7 @@ function UpdateProd({id}:{id: string}){
                 id="inStock" 
                 name="inStock" 
                 label="In Stock?"
-                initialValue="false"
+                initialValue={editFormState?.inStock}
                 valuePropName="true">
                 <Switch 
                 />

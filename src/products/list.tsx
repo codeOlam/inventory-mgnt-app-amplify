@@ -13,6 +13,7 @@ function ListProd(){
     //Query all category logic begins
     async function fetchCategories(){
         const products = await DataStore.query(Product)
+        console.log('all products: ', products)
         setLoading(false);
         setProducts(products)
     }

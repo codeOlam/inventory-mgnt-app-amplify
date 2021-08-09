@@ -4,9 +4,9 @@ type Product
   @key(name: "byCategory", fields: ["categoryID"]) {
   id: ID!
   name: String!
-  description: String
   price: Float!
-  inStock: Boolean
+  inStock: Boolean!
+  description: String
   createdAt: AWSDateTime
   updatedAt: AWSDateTime
   categoryID: ID!
