@@ -17,13 +17,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "description": {
-                    "name": "description",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "price": {
                     "name": "price",
                     "isArray": false,
@@ -35,6 +28,13 @@ export const schema = {
                     "name": "inStock",
                     "isArray": false,
                     "type": "Boolean",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "description": {
+                    "name": "description",
+                    "isArray": false,
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -174,5 +174,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "e8e98c5c0a1e80c4e8eed91dc4b2862c"
+    "version": "129257ebe267d2b389f68e8ba9ef8dca"
 };

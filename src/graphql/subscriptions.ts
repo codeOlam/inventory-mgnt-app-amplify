@@ -7,12 +7,12 @@ export const onCreateProduct = /* GraphQL */ `
     onCreateProduct {
       id
       name
-      description
       price
       inStock
+      description
       createdAt
       updatedAt
-      CategoryId
+      categoryID
       _version
       _deleted
       _lastChangedAt
@@ -33,12 +33,12 @@ export const onUpdateProduct = /* GraphQL */ `
     onUpdateProduct {
       id
       name
-      description
       price
       inStock
+      description
       createdAt
       updatedAt
-      CategoryId
+      categoryID
       _version
       _deleted
       _lastChangedAt
@@ -59,12 +59,12 @@ export const onDeleteProduct = /* GraphQL */ `
     onDeleteProduct {
       id
       name
-      description
       price
       inStock
+      description
       createdAt
       updatedAt
-      CategoryId
+      categoryID
       _version
       _deleted
       _lastChangedAt

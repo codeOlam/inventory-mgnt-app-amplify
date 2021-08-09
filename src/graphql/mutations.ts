@@ -10,12 +10,12 @@ export const createProduct = /* GraphQL */ `
     createProduct(input: $input, condition: $condition) {
       id
       name
-      description
       price
       inStock
+      description
       createdAt
       updatedAt
-      CategoryId
+      categoryID
       _version
       _deleted
       _lastChangedAt
@@ -39,12 +39,12 @@ export const updateProduct = /* GraphQL */ `
     updateProduct(input: $input, condition: $condition) {
       id
       name
-      description
       price
       inStock
+      description
       createdAt
       updatedAt
-      CategoryId
+      categoryID
       _version
       _deleted
       _lastChangedAt
@@ -68,12 +68,12 @@ export const deleteProduct = /* GraphQL */ `
     deleteProduct(input: $input, condition: $condition) {
       id
       name
-      description
       price
       inStock
+      description
       createdAt
       updatedAt
-      CategoryId
+      categoryID
       _version
       _deleted
       _lastChangedAt
