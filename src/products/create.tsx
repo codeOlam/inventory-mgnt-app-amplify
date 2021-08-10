@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {DataStore} from 'aws-amplify';
+import {DataStore} from '@aws-amplify/datastore';
 import { Category, Product } from "../models";
 import {Input, Form, Modal, Button, Switch, Select} from 'antd';
 import { AppstoreAddOutlined } from "@ant-design/icons";

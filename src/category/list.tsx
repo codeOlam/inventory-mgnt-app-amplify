@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {DataStore} from 'aws-amplify';
+import {DataStore} from '@aws-amplify/datastore';
 import { Category } from "../models";
 import { Table, Spin} from "antd";
 import { DeleteTwoTone} from "@ant-design/icons";
